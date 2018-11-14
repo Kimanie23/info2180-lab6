@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Info2180-lab6 </title>
+		<style>
+			#dictionary {
+				font-family: "Times New Romans";
+			}
+			header {
+				background: blue;
+				
+			}
+			button:hover, button:focus, button:active {
+			    color: #EBF5FF;
+			    background-color: #4312AE;
+			    cursor: pointer;
+			  }
+		</style>
+	
+	</head>
+
+
+	<body>
+
+		<header> Web Dictionary </header>
+
+		<section> 
+			<p> Look up the definition of a word (eg ajax, html, php, javascript or css)</p> <br>
+
+			<input type= "text" id="dictionary" onkeyup = "" placeholder= "search for word...">
+			<button type= "submit" onclick= "main()" ><i class= "Search"> Search </i></button>
+		</section>
+
+		<hr>
+
+		<div id= "result"></div>
+
+
+
+
+
+
+
+			<script type = "text/javascript">
+function main() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = dDefinition;
+	xhttp.open('Get',"request.php?q="+str, true);
+	xhttp.send();
+}
+
+function dDefinition (){
+	if( xhttp.readyState === XMLHttpRequest.Done){
+		 if (xhttp.status === 200) {
+			var response = xhttp.responseText;
+			alert(response);
+		 } else {
+			alert('error');
+				   }
+}
+}
+							
+
+/*document.getElementById("dictionary").addEventListener("onclick", );*/
+
+
+
+		
+
+
+
+		</script>
+
+	</body>
+</html>
